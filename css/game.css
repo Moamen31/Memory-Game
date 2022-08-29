@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+img {
+  max-width: 45px;
+}
+ul {
+  list-style-type: none;
+}
+body {
+  font-family: "poppins", sans-serif;
+  min-height: 100vh;
+  background-color: #6563ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper {
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  box-shadow: 0 3px 10px 0 hsl(0deg 0% 29% / 58%);
+  margin: 0 10px;
+}
+.cards,
+.card,
+.view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cards {
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  perspective: 1000px;
+}
+.cards .card {
+  cursor: pointer;
+  width: calc(100% / 4 - 10px);
+  height: calc(100% / 4 - 10px);
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 0.7s;
+}
+
+.cards .card.shake{
+  animation: shake 0.35s linear alternate;
+}
+
+@keyframes shake {
+  0%, 100%{
+    transform: translateX(0) rotateY(180deg);
+  }
+  20%{
+    transform: translateX(-13px) rotateY(180deg);
+  }
+  40%{
+    transform: translateX(13px) rotateY(180deg);
+  }
+  60%{
+    transform: translateX(-8px) rotateY(180deg);
+  }
+  80%{
+    transform: translateX(8px) rotateY(180deg);
+  }
+}
+
+.cards .card .view {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 5px 0 hsl(0deg 0% 59% / 20%);
+  border-radius: 7px;
+  position: absolute;
+  backface-visibility: hidden;
+}
+.card .back-view {
+  transform: rotateY(180deg);
+}
+.card .front-view i {
+  font-size: 25px;
+  color: #6563ff;
+}
+
+.cards .card.rotate {
+  transform: rotateY(180deg);
+}
+
